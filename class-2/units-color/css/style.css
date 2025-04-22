@@ -1,0 +1,39 @@
+/* p{
+    color: red;
+} */
+
+/* class selector */
+.px-unit{
+    font-size: 20px;
+}
+
+/* id selector */
+#red{
+    color: red;
+}
+#green {
+    color: green;
+}
+
+/* units */
+.normal-unit{
+    font-size: 16px;
+}
+.em-unit{
+    font-size: 2em;
+}
+
+/* colors */
+.hex-colors{
+    color: #bb46fc; /*hex colors*/
+}
+
+/* rgb colors */
+/* r = red
+g = green
+b = blue */
+
+/* range 0-255 */
+.rgb-colors{
+    color: rgb(0, 153, 24);
+}
