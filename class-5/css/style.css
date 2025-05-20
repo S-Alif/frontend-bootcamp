@@ -1,0 +1,99 @@
+html{
+    font-size: 100%;
+}
+*{
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: #f0f2f5;
+    display: flex;
+    justify-content: center;
+}
+
+/* card */
+.app {
+    background: white;
+    border-radius: 12px;
+    padding: 16px;
+    max-width: 600px;
+    width: 100%;
+    margin: 50px 0;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* title */
+h1 {
+    text-align: center;
+    color: #333;
+}
+
+/* task input div */
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* task inputs */
+#taskTitle,
+#taskDesc{
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    width: 100%;
+}
+
+#taskDesc {
+    resize: vertical;
+}
+
+/* add task button */
+#addTaskBtn {
+    width: 100%;
+    background: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 16px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+/* task lists */
+#taskList {
+    list-style: none;
+    padding: 0;
+}
+
+.task-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    background: #f9f9f9;
+    margin-bottom: 8px;
+    border-radius: 6px;
+}
+
+.task-item.completed {
+    text-decoration: line-through;
+    color: #888;
+}
+
+.footer {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    font-size: 14px;
+    color: #555;
+}
+
+.filters .filter-btn {
+    background: none;
+    border: none;
+    color: #007bff;
+    margin-left: 5px;
+    cursor: pointer;
+}

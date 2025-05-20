@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- custom css -->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- <script src="js/script.js" defer></script> -->
+
+    <title>Class - 5 todo</title>
+</head>
+<body>
+    <div class="app">
+    
+        <!-- title -->
+        <h1>📝 To-Do List</h1>
+    
+        <!-- input fields for task title, description and date -->
+        <div class="input-group column">
+            <!-- title input -->
+            <input type="text" id="taskTitle" placeholder="Task Title" />
+
+            <!-- task description -->
+            <textarea id="taskDesc" placeholder="Description"></textarea>
+
+            <!-- submit button -->
+            <button id="addTaskBtn">Add Task</button>
+        </div>
+    
+        <!-- show tasks in here -->
+        <ul id="taskList"></ul>
+    
+        <!-- show amount of tasks and filter buttons -->
+        <div class="footer">
+            <span id="taskCount"></span>
+            <div class="filters">
+                <button class="filter-btn" id="all">All</button>
+                <button class="filter-btn" id="active">Active</button>
+                <button class="filter-btn" id="completed">Completed</button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- javascript -->
+    <script src="js/script.js"></script>
+</body>
+</html>
