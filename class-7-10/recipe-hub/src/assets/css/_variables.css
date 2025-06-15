@@ -1,0 +1,27 @@
+/* google font */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,100..900;1,100..900&display=swap');
+
+/* root variables */
+:root {
+    /*main theme colors*/
+    --bg-color: #FFF1CA;
+    --bg-yellow: #FFB823;
+    --bg-green: #708A58;
+    --bg-deep-green: #2D4F2B;
+
+    /*for cards*/
+    --card-bg-color: #E7EFC7;
+    --card-border-radius: 10px;
+
+    /*button border radius*/
+    --btn-border-radius: 5px;
+
+    /*fonts*/
+    --font-family: 'Noto Serif', serif;
+
+    --font-normal: 400;
+    --font-medium: 500;
+    --font-semi-bold: 600;
+    --font-bold: 700;
+    --font-extra-bold: 800;
+}
