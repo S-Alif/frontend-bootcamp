@@ -1,4 +1,3 @@
-import Navbar from './components/Navbar'
 import { Link } from "react-router"
 import logo from "./assets/images/logo.png"
 import SectionTitle from './components/SectionTitle'
@@ -28,7 +27,6 @@ const App = () => {
 
 	return (
 		<section className='page-section'>
-			<Navbar />
 
 			{/*home section*/}
 			<section id="home">
