@@ -1,5 +1,6 @@
-import Navbar from "../Navbar.jsx";
+import Navbar from "../Navbar";
 import { Outlet } from "react-router"; // it is used to pass a component as children from the route itself
+import Footer from '../Footer';
 
 const MainLayout = () => {
     return (
@@ -8,6 +9,7 @@ const MainLayout = () => {
             <main className={"main-layout"}>
                 <Outlet />
             </main>
+            <Footer />
         </>
     )
 }

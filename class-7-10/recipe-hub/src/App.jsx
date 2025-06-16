@@ -2,22 +2,32 @@ import { Link } from "react-router"
 import logo from "./assets/images/logo.png"
 import SectionTitle from './components/SectionTitle'
 import { useEffect, useState } from 'react'
-import RecipeCard from './components/cards/RecipeCard'
 import apiRoutes from './constants/api-constants'
 import apiHandler from './utils/api-handler'
+import DisplayRecipeCards from './components/DisplayRecipeCards'
+import { mealTypes } from "./data/recipeData.js"
 
 
 const App = () => {
 
 	const [popularRecipes, setPopularRecipes] = useState([])
+	const [highRatedRecipes, setHighRatedRecipes] = useState([])
+	const dataLimit = 5
 
+
+	// getting data
 	const fetchData = async () => {
 		const popular = await apiHandler(
 			`${apiRoutes.recipe}/?select=name,id,difficulty,cuisine,mealType,image,tags&order=desc&limit=${dataLimit}&sortBy=reviewCount`,
 			"GET"
 		)
-		if (!popular) return
-		setPopularRecipes(popularRecipes.recipes)
+		// highest rated recipes
+		const highRated = await apiHandler(
+			`${apiRoutes.recipe}/?select=name,id,difficulty,cuisine,mealType,image,tags&order=desc&limit=${dataLimit}&sortBy=rating`,
+			"GET"
+		)
+		if (popular) setPopularRecipes(popular.recipes)
+		if (highRated) setHighRatedRecipes(highRated.recipes)
 	}
 
 	// useEffect hook always runs once when the page loads
@@ -54,14 +64,36 @@ const App = () => {
 			<section id={"popular"} className={"section-layout"}>
 				<div className="container">
 					<SectionTitle text={"Popular Recipes"} />
-					{
-						popularRecipes.map((recipe, index) => (
-							<RecipeCard
-								item={recipe}
-								key={index}
-							/>
-						))
-					}
+					<DisplayRecipeCards recipes={popularRecipes} />
+				</div>
+			</section>
+
+			{/*meal types*/}
+			<section id={"highest-rated"} className={"section-layout"}>
+				<div className="container">
+					<SectionTitle text={"Visit Every Meal Type"} />
+					<div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 xl:grid-cols-5 pt-3">
+						{
+							mealTypes.map((type, index) => (
+								<Link
+									to={`/recipe-list/meal-type/${type}?page=1&sort=newest`}
+									key={index}
+									className={"btn link bg-green text-center"}
+								>
+									{type}
+								</Link>
+							))
+						}
+					</div>
+				</div>
+			</section>
+
+
+			{/*high recipe*/}
+			<section id={"highest-rated"} className={"section-layout"}>
+				<div className="container">
+					<SectionTitle text={"Highest Rated Recipes"} />
+					<DisplayRecipeCards recipes={highRatedRecipes} />
 				</div>
 			</section>
 
