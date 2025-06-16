@@ -1,0 +1,57 @@
+/* Home section */
+.home-content {
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("https://tinyurl.com/mr48b2ey");
+    width: 100%;
+    height: 70vh;
+    margin-top: 40px;
+    border-radius: 20px;
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+/* Headline */
+.home-title {
+    font-size: 2.5rem;
+    font-weight: var(--font-bold);
+    margin-bottom: 1rem;
+}
+
+/* Subtext below headline */
+.home-subtitle {
+    font-size: 1.2rem;
+    font-weight: var(--font-medium);
+    margin-bottom: 2rem;
+}
+
+
+/*=== about section ===*/
+.about .content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.about .content .title {
+    font-weight: var(--font-bold);
+    font-size: 2rem;
+    text-decoration: underline;
+    text-underline-offset: 10px;
+    margin-bottom: 40px;
+}
+
+.about .content img {
+    width: 150px;
+}
+
+.about .content p {
+    width: 100%;
+    max-width: 800px;
+    text-align: center;
+    margin-top: 40px;
+    font-size: 1.2rem;
+}
