@@ -1,9 +1,31 @@
 import Navbar from './components/Navbar'
 import { Link } from "react-router"
 import logo from "./assets/images/logo.png"
+import SectionTitle from './components/SectionTitle'
+import { useEffect, useState } from 'react'
+import RecipeCard from './components/cards/RecipeCard'
+import apiRoutes from './constants/api-constants'
+import apiHandler from './utils/api-handler'
 
 
 const App = () => {
+
+	const [popularRecipes, setPopularRecipes] = useState([])
+
+	const fetchData = async () => {
+		const popular = await apiHandler(
+			`${apiRoutes.recipe}/?select=name,id,difficulty,cuisine,mealType,image,tags&order=desc&limit=${dataLimit}&sortBy=reviewCount`,
+			"GET"
+		)
+		if (!popular) return
+		setPopularRecipes(popularRecipes.recipes)
+	}
+
+	// useEffect hook always runs once when the page loads
+	useEffect(() => {
+		fetchData()
+	}, [])
+
 	return (
 		<section className='page-section'>
 			<Navbar />
@@ -27,6 +49,21 @@ const App = () => {
 						<img src={logo} alt="logo" />
 						<p>At <b>RecipeHub</b>, we're passionate about bringing people together through the joy of cooking. Whether you're a beginner or an experienced chef, our collection of easy-to-follow recipes is designed to help you create delicious meals with confidence. We believe good food should be simple, fun, and shared with loved ones</p>
 					</div>
+				</div>
+			</section>
+
+			{/*popular recipe*/}
+			<section id={"popular"} className={"section-layout"}>
+				<div className="container">
+					<SectionTitle text={"Popular Recipes"} />
+					{
+						popularRecipes.map((recipe, index) => (
+							<RecipeCard
+								item={recipe}
+								key={index}
+							/>
+						))
+					}
 				</div>
 			</section>
 
