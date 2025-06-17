@@ -1,11 +1,18 @@
 import RecipeCard from "./cards/RecipeCard.jsx";
 import { Link } from "react-router";
+import Loader from "./Loader"
 
 const DisplayRecipeCards = ({
     recipes = [],
     showSeeMoreBtn = true,
     loading = false
 }) => {
+
+    if (loading) {
+        return (
+            <Loader />
+        )
+    }
 
     return (
         <>

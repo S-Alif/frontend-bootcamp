@@ -1,0 +1,19 @@
+.loader {
+    width: 100%;
+    background: var(--bg-yellow);
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 0;
+}
+
+.loader .loader-body img {
+    width: 100px;
+    margin-bottom: 20px;
+    margin: 0 auto;
+}
+
+.loader .loader-body p {
+    font-size: 1.2rem;
+}

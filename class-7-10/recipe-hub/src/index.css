@@ -4,6 +4,7 @@
 
 /* components */
 @import "./assets/css/navbar.css";
+@import "./assets/css/loader.css";
 
 /* page */
 @import "./assets/css/home.css";

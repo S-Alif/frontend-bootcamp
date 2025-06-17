@@ -12,11 +12,15 @@ const App = () => {
 
 	const [popularRecipes, setPopularRecipes] = useState([])
 	const [highRatedRecipes, setHighRatedRecipes] = useState([])
+	const [loading, setLoading] = useState(false)
 	const dataLimit = 5
 
 
 	// getting data
 	const fetchData = async () => {
+
+		setLoading(true)
+		// popular recipe
 		const popular = await apiHandler(
 			`${apiRoutes.recipe}/?select=name,id,difficulty,cuisine,mealType,image,tags&order=desc&limit=${dataLimit}&sortBy=reviewCount`,
 			"GET"
@@ -28,6 +32,8 @@ const App = () => {
 		)
 		if (popular) setPopularRecipes(popular.recipes)
 		if (highRated) setHighRatedRecipes(highRated.recipes)
+
+		setLoading(false)
 	}
 
 	// useEffect hook always runs once when the page loads
@@ -64,7 +70,7 @@ const App = () => {
 			<section id={"popular"} className={"section-layout"}>
 				<div className="container">
 					<SectionTitle text={"Popular Recipes"} />
-					<DisplayRecipeCards recipes={popularRecipes} />
+					<DisplayRecipeCards recipes={popularRecipes} loading={loading} />
 				</div>
 			</section>
 
@@ -93,7 +99,7 @@ const App = () => {
 			<section id={"highest-rated"} className={"section-layout"}>
 				<div className="container">
 					<SectionTitle text={"Highest Rated Recipes"} />
-					<DisplayRecipeCards recipes={highRatedRecipes} />
+					<DisplayRecipeCards recipes={highRatedRecipes} loading={loading} />
 				</div>
 			</section>
 
