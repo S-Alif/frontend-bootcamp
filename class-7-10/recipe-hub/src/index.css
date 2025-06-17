@@ -5,6 +5,8 @@
 /* components */
 @import "./assets/css/navbar.css";
 @import "./assets/css/loader.css";
+@import "./assets/css/pagination.css";
 
 /* page */
 @import "./assets/css/home.css";
+@import "./assets/css/recipe-details.css";

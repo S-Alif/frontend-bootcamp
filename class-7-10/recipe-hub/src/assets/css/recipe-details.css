@@ -1,0 +1,42 @@
+
+/*recipe-image*/
+.recipe-details .recipe-image{
+    position: sticky;
+    top: 84px;
+    width: 100%;
+    max-height: 600px;
+    aspect-ratio: 1/1;
+}
+.recipe-details .recipe-image img{
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.4);
+}
+
+/*name*/
+.recipe-details h1{
+    font-size: 36px;
+}
+
+/*rating-reviews*/
+.recipe-details .rating-reviews p{
+    display: flex;
+    gap: 1rem;
+}
+.recipe-details .rating-reviews p span{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 4px;
+}
+
+/*tags*/
+.recipe-details .display-tags{
+    display: flex;
+    gap: 1rem;
+}
+
+@media (max-width: 1024px) {
+    .recipe-details .recipe-image{
+        position: static;
+    }
+}

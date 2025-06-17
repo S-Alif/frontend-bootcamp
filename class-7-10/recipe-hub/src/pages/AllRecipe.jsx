@@ -4,6 +4,7 @@ import DisplayRecipeCards from "../components/DisplayRecipeCards"
 import apiHandler from "../utils/api-handler.js"
 import SectionTitle from "../components/SectionTitle.jsx"
 import useQueryParams from "../hooks/useQueryParams.jsx";
+import Pagination from '../components/Pagination'
 
 
 const AllRecipe = () => {
@@ -30,7 +31,7 @@ const AllRecipe = () => {
         setLoading(true)
 
         const data = await apiHandler(
-            `${apiRoutes.recipe}/?limit=${limit}${sortingParams}`,
+            `${apiRoutes.recipe}/?limit=${limit}&skip=${(parseInt(page) - 1) * limit}${sortingParams}`,
             "GET"
         )
         if (data) {
@@ -43,7 +44,7 @@ const AllRecipe = () => {
     // load the first data
     useEffect(() => {
         fetchRecipes()
-    }, [sort])
+    }, [sort, page])
 
     return (
         <section className={"page-section"} id={"all-recipe"}>
@@ -58,7 +59,11 @@ const AllRecipe = () => {
                             value={sort}
                             onChange={(event) => {
                                 setNewSearchParams("sort", event.target.value)
+                                if (page != "1") {
+                                    return setNewSearchParams("page", "1")
+                                }
                             }}
+                            className={"select-sort-option"}
                         >
                             <option value="newest">Newest</option>
                             <option value="popular">Popular</option>
@@ -67,6 +72,16 @@ const AllRecipe = () => {
                     </div>
 
                     <DisplayRecipeCards recipes={recipes} showSeeMoreBtn={false} loading={loading} />
+
+                    <Pagination
+                        total={total}
+                        currentPage={parseInt(page)}
+                        setPage={(pageNum) => {
+                            setNewSearchParams("page", pageNum)
+                        }}
+                        limit={limit}
+                        loading={loading}
+                    />
                 </div>
             </section>
         </section>
