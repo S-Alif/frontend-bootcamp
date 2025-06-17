@@ -16,7 +16,8 @@ const apiHandler = async (url, method = "GET", data = {}) => {
 
         // fetch the data from the server - returns JSON response
         const response = await fetch(url, options)
-        console.log(response)
+        // console.log(response)
+
         // checking if there was an error
         if (!response.ok) {
             console.log(response)
